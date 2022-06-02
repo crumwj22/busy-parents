@@ -1,7 +1,7 @@
 -- DROP DATABASE
 
-DROP DATABASE IF EXISTS busyparents_db;
+DROP DATABASE IF EXISTS busyParents_db;
 
 -- CREATE DATABASE
 
-CREATE DATABASE busyparents_db;
+CREATE DATABASE busyParents_db;

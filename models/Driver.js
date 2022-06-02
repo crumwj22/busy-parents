@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const Driver = require('./User');
 
-class Driver extends Model { }
+class Driver extends Model {}
 
 Driver.init(
   {
@@ -44,7 +44,7 @@ Driver.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'driver',
   }
 );
 

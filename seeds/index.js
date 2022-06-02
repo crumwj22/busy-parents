@@ -1,11 +1,11 @@
 const sequelize = require('../config/connection');
 const { User } = require('../models');
-const { Comment } = require('../models');
-const { Blog } = require('../models');
+const { Rider } = require('../models');
+const { Driver } = require('../models');
 
-const blogData = require('./blogPostData.json');
-const commentData = require('./commentData.json');
 const userData = require('./userData.json');
+// const riderData = require('./rider.json');
+const driverData = require('./driver.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,11 +14,10 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  await Blog.bulkCreate(blogData,
-    {
-      individualHooks: true,
-      returning: true,
-    });
+  await Driver.bulkCreate(driverData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   console.log('\n----- POST Added! -----\n');
 
