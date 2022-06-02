@@ -1,13 +1,26 @@
 const User = require('./User');
-const Project = require('./Project');
+const Rider = require('./Rider');
+const Driver = require('./User');
 
-User.hasMany(Project, {
+
+Driver.hasOne(User, {
+  // Define the third table needed to store the foreign keys
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+User.belongsTo(Driver, {
+  foreignKey: 'user_id',
 });
 
-module.exports = { User, Project };
+Driver.hasMany(Rider, {
+  // Define the third table needed to store the foreign keys
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+Rider.belongsTo(Driver, {
+  foreignKey: 'user_id',
+})
+
+module.exports = { User, Driver, Rider };
