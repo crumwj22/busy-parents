@@ -2,7 +2,6 @@ const User = require('./User');
 const Rider = require('./Rider');
 const Driver = require('./User');
 
-
 Driver.hasOne(User, {
   // Define the third table needed to store the foreign keys
   foreignKey: 'user_id',
@@ -21,6 +20,6 @@ Driver.hasMany(Rider, {
 
 Rider.belongsTo(Driver, {
   foreignKey: 'user_id',
-})
+});
 
 module.exports = { User, Driver, Rider };
