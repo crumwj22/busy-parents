@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Rider extends Model { }
+class Rider extends Model {}
 
 Rider.init(
   {
@@ -36,7 +36,7 @@ Rider.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'rider',
   }
 );
 
