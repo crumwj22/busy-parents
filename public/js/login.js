@@ -29,14 +29,11 @@ const loginFormHandler = async (event) => {
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const city = document.querySelector('#city-signup').value.trim();
-    // Constants for driver accounts
-    // const availability = document.querySelector('#availablity-signup').value.trim();
-    // const pickup = document.querySelector('#pickup-signup').value.trim();
   
     if (name && username && password && city) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ name, username, password }),
+        body: JSON.stringify({ name, username, password, city }),
         headers: { 'Content-Type': 'application/json' },
       });
   
