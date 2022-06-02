@@ -2,29 +2,25 @@ const User = require('./User');
 const Rider = require('./Rider');
 const Driver = require('./User');
 
-// We can also define the association starting with License
-User.belongsTo(Driver, Rider, {
+
+Driver.hasOne(User, {
+  // Define the third table needed to store the foreign keys
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+User.belongsTo(Driver, {
   foreignKey: 'user_id',
 });
 
-Driver.belongsToMany(User, {
+Driver.hasMany(Rider, {
   // Define the third table needed to store the foreign keys
-  through: {
-    model: Rider,
-    unique: false
-  },
-  // Define an alias for when data is retrieved
-  as: 'requested_rides'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
-Rider.belongsToMany(Driver, {
-  // Define the third table needed to store the foreign keys
-  through: {
-    model: Rider,
-    unique: false
-  },
-  // Define an alias for when data is retrieved
-  as: 'scheduled_rides'
-});
+Rider.belongsTo(Driver, {
+  foreignKey: 'user_id',
+})
 
 module.exports = { User, Driver, Rider };
