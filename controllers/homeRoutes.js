@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// check to see if users logged in, if not logged in prompt the user to login
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -50,6 +51,7 @@ router.get('/project/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+// need to add driver and ride data
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
