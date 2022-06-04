@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Driver = require('./User');
+// const Driver = require('./User');
 
 class Driver extends Model {}
 
@@ -27,10 +27,10 @@ Driver.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    availability: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+    // availability: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -4,7 +4,7 @@ const { Rider } = require('../models');
 const { Driver } = require('../models');
 
 const userData = require('./userData.json');
-// const riderData = require('./rider.json');
+const riderData = require('./rider.json');
 const driverData = require('./driver.json');
 
 const seedDatabase = async () => {
@@ -18,11 +18,15 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+  await Rider.bulkCreate(riderData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   console.log('\n----- POST Added! -----\n');
 
-  await commentData();
-  console.log('\n----- COMMENT Added! -----\n');
+  // await commentData();
+  // console.log('\n----- COMMENT Added! -----\n');
 
   process.exit(0);
 };
