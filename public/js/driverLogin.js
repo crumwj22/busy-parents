@@ -26,6 +26,7 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#name-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const city = document.querySelector('#city-signup').value.trim();
@@ -34,7 +35,7 @@ const loginFormHandler = async (event) => {
     const pickup = document.querySelector('#pickup-signup').value.trim();
     const dropoff = document.querySelector('#dropoff-signup').value.trim();
 
-    if (name && username && password && city && availability && pickup && dropoff) {
+    if (name && username && password && email && city && availability && pickup && dropoff) {
       const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ name, username, password, availability, pickup, dropoff }),
