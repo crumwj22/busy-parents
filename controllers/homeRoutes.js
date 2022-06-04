@@ -6,14 +6,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const userData = await User.findAll({
-      include: [
-        {
-          model: Rider,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const userData = await User.findAll({});
 
     // Serialize data so the template can read it
     const user = userData.map((user) => user.get({ plain: true }));
@@ -21,7 +14,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', {
       user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -30,20 +23,13 @@ router.get('/', async (req, res) => {
 
 router.get('/user/:id', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Rider,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const userData = await User.findByPk(req.params.id, {});
 
     const user = userData.get({ plain: true });
 
     res.render('user', {
       ...user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -64,7 +50,7 @@ router.get('/rider', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...rider,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -83,7 +69,7 @@ router.get('/driver', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...driver,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
