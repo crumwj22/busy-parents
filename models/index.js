@@ -1,6 +1,6 @@
 const User = require('./User');
 const Rider = require('./Rider');
-const Driver = require('./User');
+const Driver = require('./Driver');
 
 Driver.hasOne(User, {
   // Define the third table needed to store the foreign keys

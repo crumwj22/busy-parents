@@ -1,44 +1,29 @@
-
 [
      {
-     "driver_id": "1",
-     "user_name": "mike101",
-     "city": "Seattle",
-     "person_name": "Mike Miller",
-     "availability": "MONDAY MORNINGS, TUESDAY MORNINGS",
+     "name": "mike101",
      "pickup_location": "West Seattle High School",
      "dropoff_location": "South Seattle High School"
     },
     {
-     "user_name": "tyson101",
-      "city": "Bellevue",
-      "person_name": "Tyson Chen",
-      "availability": "MONDAY EVENINGS, TUESDAY MORNINGS, THURDAY AFTERNOONS",
+      "name": "tyson101",
       "pickup_location": "Bellevue Drive Park & Drive",
       "dropoff_location": "Bellevue Elementry"
      },
      {
-      "user_name": "sarah382",
-      "city": "Seattle",
-      "person_name": "Sarah Hillsonville",
-      "availability": "MONDAY MORNINGS, TUESDAY MORNINGS",
+      "name": "sarah382",
       "pickup_location": "West Seattle High School",
       "dropoff_location": "South Seattle High School"
      },
      {
-     "user_name": "LivelaughLoo",
-      "city": "Tacoma",
-      "person_name": "Devon Sage",
-      "availability": "FRIDAY AFTERNOONS, TUESDAY MORNINGS, WEDNESDAY EVENING ",
+    
+      "name": "LivelaughLoo",
       "pickup_location": "Tacoma High School",
       "dropoff_location": "Gig Harbor Middle School"
      },
      {
-      "user_name": "Sunsh1n3Rae",
-      "city": "Seattle",
-      "person_name": "Daisy Rae",
-      "availability": "N/A",
-      "driver_id_saved": "1",
+      "name": "Sunsh1n3Rae",
       "dropoff_location": "Gig Harbor Middle School"
       }
-     ]
+
+]
+
