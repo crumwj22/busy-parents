@@ -86,4 +86,59 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//Create a new Blog Post
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newUser = await User.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(newUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+//Edit a Blog Post
+router.put('/:id', withAuth, (req, res) => {
+  User.update(
+    {
+      post_content: req.body.post_content,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No User found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+//Delete a Blog Post
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const UserData = await User.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    if (!UserData) {
+      res.status(404).json({ message: 'No User found with this id!' });
+      return;
+    }
+    res.status(200).json(UserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
