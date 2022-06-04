@@ -2,6 +2,7 @@
 [
      
      {
+
      "name": "Peter",
      "city": "Quahog"
      },
@@ -21,5 +22,5 @@
      "name": "Lois",
      "city": "Quahog"
      }
-     
+
 ]
