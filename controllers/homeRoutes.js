@@ -7,12 +7,12 @@ router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const userData = await User.findAll({
-      include: [
-        {
-          model: Rider,
-          attributes: ['name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Rider,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', {
       user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -43,7 +43,7 @@ router.get('/user/:id', async (req, res) => {
 
     res.render('user', {
       ...user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -64,7 +64,7 @@ router.get('/rider', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...rider,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -83,7 +83,7 @@ router.get('/driver', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...driver,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
