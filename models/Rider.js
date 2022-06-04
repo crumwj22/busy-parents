@@ -31,6 +31,13 @@ Rider.init(
         key: 'id',
       },
     },
+    driver_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'driver',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

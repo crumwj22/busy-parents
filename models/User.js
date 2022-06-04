@@ -20,6 +20,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'Seattle',
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
