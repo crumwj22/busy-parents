@@ -6,14 +6,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const userData = await User.findAll({
-      // include: [
-      //   {
-      //     model: Rider,
-      //     attributes: ['name'],
-      //   },
-      // ],
-    });
+    const userData = await User.findAll({});
 
     // Serialize data so the template can read it
     const user = userData.map((user) => user.get({ plain: true }));
@@ -30,14 +23,7 @@ router.get('/', async (req, res) => {
 
 router.get('/user/:id', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Rider,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const userData = await User.findByPk(req.params.id, {});
 
     const user = userData.get({ plain: true });
 
