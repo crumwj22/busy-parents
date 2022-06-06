@@ -22,12 +22,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newDriver = await Driver.create({
+    const newRider = await Rider.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newDriver);
+    res.status(200).json(newRider);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -35,19 +35,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const driverData = await Driver.destroy({
+    const riderData = await Rider.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!driverData) {
-      res.status(404).json({ message: 'No driver found with this id!' });
+    if (!riderData) {
+      res.status(404).json({ message: 'No rider found with this id!' });
       return;
     }
 
-    res.status(200).json(driverData);
+    res.status(200).json(riderData);
   } catch (err) {
     res.status(500).json(err);
   }
