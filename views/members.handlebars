@@ -1,55 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/members">FUR-Ever Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/privateOwner">Adopt from Private Owner</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/shelter">Adopt from Shelter</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/addPet">Post a pet for Adoption</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout"> Logout </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-3 mx-auto text-center">
-      <h1>Welcome <span class="member-name"></span></h1>
-      <br>
-      <br>
-      <br>
-      <p>
-        Welcome to FUR-Ever Home, A forum dedicated to finding a forever home for privately owned and sheltered pets. We
-        wanted an easier way for people to find and post pets for adoption.
-      </p>
-      <br>
-      <br>
-      <div class="row">
-        <button class="btn btn-light" <p><a href="/privateOwner">
-            Visit our Private Owners Section to find and post pets for adoption without the need for a pet shelter!
-          </a></p>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <button class="btn btn-light" <p><a href="/shelter">
-            Visit our Shletered Pets section to find pets posted by shelters near you!
-          </a></p>
-      </div>
-    </div>
+<div class="w3-padding-32">
+  <div class="w3-bar w3-border">
+    <a href="#" class="w3-bar-item w3-button">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-light-grey">My Account</a>
+    <a href="#" class="w3-bar-item w3-button">Log Out</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a>
   </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="col-12">
+  <div class="w3-center w3-grey w3-padding-16">
+    <input type="text" class="form-control rounded" id="searchTxt" placeholder="Enter A City Name" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" id="searchBtn" class="w3-button  w3-white w3-border w3-round-large">Search for
+      Drivers</button>
+  </div>
+</div>
+
 <script type="text/javascript" src="js/members.js"></script>
