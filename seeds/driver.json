@@ -2,27 +2,32 @@
      {
      "name": "mike101",
      "pickup_location": "West Seattle High School",
-     "dropoff_location": "South Seattle High School"
+     "dropoff_location": "South Seattle High School",
+     "availability": "Afternoon"
     },
     {
       "name": "tyson101",
       "pickup_location": "Bellevue Drive Park & Drive",
-      "dropoff_location": "Bellevue Elementry"
+      "dropoff_location": "Bellevue Elementry",
+      "availability": "Morning"
      },
      {
       "name": "sarah382",
       "pickup_location": "West Seattle High School",
-      "dropoff_location": "South Seattle High School"
+      "dropoff_location": "South Seattle High School",
+      "availability": "Afternoon"
      },
      {
     
       "name": "LivelaughLoo",
       "pickup_location": "Tacoma High School",
-      "dropoff_location": "Gig Harbor Middle School"
+      "dropoff_location": "Gig Harbor Middle School",
+      "availability": "Afternoon"
      },
      {
       "name": "Sunsh1n3Rae",
-      "dropoff_location": "Gig Harbor Middle School"
+      "dropoff_location": "Gig Harbor Middle School",
+      "availability": "Morning"
       }
 
 ]

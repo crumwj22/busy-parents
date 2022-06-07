@@ -27,10 +27,10 @@ Driver.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // availability: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    availability: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
