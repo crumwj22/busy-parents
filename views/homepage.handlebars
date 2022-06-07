@@ -1,41 +1,10 @@
-{{!--
-<!-- FAQs Modal -->
-<div id="faqs" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container w3-black w3-display-container">
-      <span onclick="document.getElementById('faqs').style.display='none'"
-        class="w3-button w3-display-topright w3-large">x</span>
-      <h1>How do you verify your users?</h1>
-    </div>
-    <div class="w3-container">
-      <h5>In order to book a ride both the rider and driver need to verify their phone numbers and login using
-        Facebook. <b>Your phone number will only be shown to each other after you book a ride.</b></h5>
-      <h5>To boost confidence in the service community members are asked to use their real names <b>(not
-          nicknames)</b> and real images only. </h5>
-    </div>
-    <div class="w3-container w3-black">
-      <h1>Both sides have to agree for the ride to take place.</h1>
-    </div>
-    <div class="w3-container">
-      <h5>Both driver and passenger will be able to view each other’s profile and have the choice of who they will or
-        will not ride with. </h5>
-    </div>
+{{#each users as |user| }}
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <h2>{{{get_emoji}}} {{user.name}}</h2>
   </div>
-</div> --}}
-
-<!-- Loop over each object in the riders array -->
-{{#each riders as |rider| }}
-<div class="row mb-4 rider">
-  <div class="col-md-5">
-    <h2>
-      <a href="/rider/{{rider.id}}">{{rider.name}}</a>
-    </h2>
-        <p>Created by {{rider.user.name}} on {{format_date rider.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{rider.informaiton}}
-    </p>
+  <div class="col-md-6">
+    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
   </div>
 </div>
 {{/each}}
