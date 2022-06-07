@@ -30,14 +30,22 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   // If the user already has an account send them to the members page
-  if (req.user) {
-    res.render("members");
+  // if (req.user) {
+  try {
+    const dbDriverData = await Driver.findAll({});
+    console.log(dbDriverData);
+    // Serialize user data so templates can read it
+    const posts = dbDriverData.map((driverpost) => driverpost.get({ plain: true }));
+
+    // Pass serialized data into Handlebars.js template
+    res.render('members', { posts });
+  } catch (err) {
+    res.status(500).json(err);
   }
-  // let them still view homepage even if not logged in
-  res.render("members");
-  // res.render("login");
+  // }
+  // res.render('login');
 });
 
 router.get('/login', (req, res) => {
@@ -50,45 +58,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-//THIS ROUTE DOESNT WORK
-router.get('/user/:id', async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {});
-
-    const user = userData.get({ plain: true });
-
-    res.render('user', {
-      ...user,
-      logged_in: req.session.logged_in,
+//route doesnt work
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
-  } catch (err) {
-    res.status(500).json(err);
+  } else {
+    res.status(404).end();
   }
 });
 
-//renders homepage, limits posts to 10
-router.get('/', async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      limit: 10,
-      include: [
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
-    });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.render('homepage', {
-      posts,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 
 module.exports = router;
