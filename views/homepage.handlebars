@@ -1,0 +1,24 @@
+<!-- Loop over each object in the riders array -->
+{{#each riders as |rider| }}
+<div class="row mb-4 rider">
+  <div class="col-md-5">
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      {{!-- {{{get_emoji}}} --}}
+      <a href="/rider/{{rider.id}}">{{rider.name}}</a>
+    </h2>
+    {{!-- <p> --}}
+      {{!-- <span for="img" aria-label="money">💲</span> --}}
+      <!-- Pass needed_funding value to the helper function -->
+      {{!-- <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
+      needed!
+    </p> --}}
+    <p>Created by {{rider.user.name}} on {{format_date rider.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{rider.informaiton}}
+    </p>
+  </div>
+</div>
+{{/each}}

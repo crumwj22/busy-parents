@@ -33,8 +33,8 @@ const displayDrivers = (drivers) => {
             <li class="drivers">
                 <h2>${drivers.name}</h2>
                 <p>City: ${drivers.city}</p>
-                <p>Dropoff"${drivers.dropoff_location}"</p>
-                <p>Pickup"${drivers.pickup_location}"</p>
+                <p>Dropoff: ${drivers.dropoff_location}</p>
+                <p>Pickup: ${drivers.pickup_location}</p>
             </li>
         `;
         })
