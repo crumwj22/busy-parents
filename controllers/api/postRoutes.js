@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     const user = userData.map((user) => user.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', {
+    res.render('signup', {
       user,
       logged_in: req.session.logged_in,
     });
