@@ -16,4 +16,31 @@
   </div>
 </div>
 
+{{#each posts}}
+<!-- Blog entry -->
+<div class="w3-card w3-margin">
+  <div class="w3-container w3-padding">
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="https://placehold.jp/30/dd6699/ffffff/300x150.png?text=placeholder+image" alt="Image"
+          class="w3-left w3-margin-right" style="width:50px">
+
+        <span class="w3-opacity">Parent Driver:</span>
+        <h3><strong>{{this.name}}</strong></h3>
+        <h5> Available: {{this.availability}}</h5>
+        <span>Pick Up Location:{{this.pickup_Location}}</span></br>
+        <span>Drop Off Location:{{this.dropoff_Location}}</span></br>
+        <span class="w3-opacity">Post made on: {{this.date_created}}</span>
+  </div>
+  </li>
+
+  <!-- Comment Card -->
+  {{>post-comments item}}
+</div>
+{{/each}}
+<!-- END DRIVER POST ENTRIES -->
+</ul>
+</div>
+
+
 <script type="text/javascript" src="js/members.js"></script>
