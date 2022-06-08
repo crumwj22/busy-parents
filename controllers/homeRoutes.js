@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Rider, Driver } = require('../models');
 const withAuth = require('../utils/auth');
 
-// // Prevent non logged in users from viewing the homepage
+// Prevent non logged in users from viewing the homepage
 // router.get('/', withAuth, async (req, res) => {
 //   try {
 //     const userData = await User.findAll({
@@ -22,30 +22,32 @@ const withAuth = require('../utils/auth');
 //   }
 // });
 
-router.get("/signup", (req, res) => {
+router.get('/signup', (req, res) => {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.render("members");
+    res.render('members');
   }
-  res.render("signup");
+  res.render('signup');
 });
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   // If the user already has an account send them to the members page
   // if (req.user) {
   try {
     const dbDriverData = await Driver.findAll({});
     console.log(dbDriverData);
     // Serialize user data so templates can read it
-    const posts = dbDriverData.map((driverpost) => driverpost.get({ plain: true }));
+    const posts = dbDriverData.map((driverpost) =>
+      driverpost.get({ plain: true })
+    );
 
     // Pass serialized data into Handlebars.js template
     res.render('members', { posts });
   } catch (err) {
-    res.status(500).json(err);
+    //   res.status(500).json(err);
+    // }
   }
-  // }
-  // res.render('login');
+  res.render('login');
 });
 
 router.get('/login', (req, res) => {
@@ -68,8 +70,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-
-
 
 module.exports = router;
