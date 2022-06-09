@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Driver, Comment } = require('../../models');
 
 //GET all Driver Posts
 router.get('/', (req, res) => {
@@ -11,6 +10,31 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// router.get('/', async (req, res) => {
+//   try {
+//     // Get all Driver Posts
+//     const driverData = await Driver.findAll({
+//       include: [
+//         {
+//           model: Driver,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     // Serialize data so the template can read it
+//     const drivers = driverData.map((driver) => driver.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
+//     res.render('dashboard', {
+//       drivers,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 //Get Comments
 router.get('/', (req, res) => {
