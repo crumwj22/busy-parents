@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/user/login', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -15,13 +15,12 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/users');
+      document.location.replace('dashboard');
     } else {
       alert(response.statusText);
     }
   }
 };
-
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -51,12 +50,15 @@ const signupFormHandler = async (event) => {
   }
 };
 if (document.querySelector('#login-form')) {
-  document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
+  document
+    .querySelector('#login-form')
+    .addEventListener('submit', loginFormHandler);
 }
 
-console.log("document.querySelector('#signup-form')")
-
+console.log("document.querySelector('#signup-form')");
 
 if (document.querySelector('#signup-form')) {
-  document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
+  document
+    .querySelector('#signup-form')
+    .addEventListener('submit', signupFormHandler);
 }
