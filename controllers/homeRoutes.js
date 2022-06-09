@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/signup', (req, res) => {
   // If the user already has an account send them to the members page
   if (req.user) {
+    console.log('test');
     res.render('members');
   }
   res.render('signup');
@@ -12,7 +13,8 @@ router.get('/signup', (req, res) => {
 
 router.get('/', async (req, res) => {
   // If the user already has an account send them to the members page
-  if (req.user) {
+  console.log(req.session.user_id);
+  if (req.session.user_id) {
     try {
       const dbDriverData = await Driver.findAll({});
       console.log(dbDriverData);
@@ -22,7 +24,9 @@ router.get('/', async (req, res) => {
       );
 
       // Pass serialized data into Handlebars.js template
+      console.log('test');
       res.render('members', { posts });
+      console.log('test');
     } catch (err) {
       res.status(500).json(err);
     }
@@ -32,15 +36,16 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
+  console.log('test1');
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
+  console.log('test');
   res.render('members');
 });
 
-//route doesnt work
+// route doesnt work
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
