@@ -1,10 +1,9 @@
 <div class="w3-padding-32">
   <div class="w3-bar w3-border">
     <a href="/" class="w3-bar-item w3-button">Home</a>
-
-    <a href="#" class="w3-bar-item w3-button w3-light-grey">My Account</a>
+    <a href="/my-account" class="w3-bar-item w3-button w3-light-grey">My Account</a>
     <a href="/api/users/logout" class="w3-bar-item w3-button">Log Out</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a>
+    {{!-- <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a> --}}
 
   </div>
 </div>
@@ -30,20 +29,43 @@
         <span class="w3-opacity">Parent Driver:</span>
         <h3><strong>{{this.name}}</strong></h3>
         <h5> Available: {{this.availability}}</h5>
-        <span>Pick Up Location:{{this.pickup_Location}}</span></br>
-        <span>Drop Off Location:{{this.dropoff_Location}}</span></br>
+        <span>Pick Up Location:{{this.pickup_location}}</span></br>
+        <span>Drop Off Location:{{this.dropoff_location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
+        <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
+        <form class="commentForm">
+          <textarea type="text" id="comment" placeholder="Write a comment to check availability."></textarea>
+          <button id="confirmComment" type="submit">Confirm comment</button>
+          <button id="cancelComment" type="reset">Cancel comment</button>
+        </form>
+        <!-- Comment Card -->
+        {{!-- {{>post-comments item}} --}}
   </div>
   </li>
-
-  <!-- Comment Card -->
-  {{>post-comments item}}
 </div>
+
+{{!-- Still working on getting this to work --}}
+{{!-- <div class='container-fluid'>
+
+  {{#if articleSingle.Comments.length}}
+  {{#each articleSingle.Comments as |comment|}}
+  <section class='comments-view'>
+      <div data-id='{{comment.id}}'>
+        <p class='commentTag' id='content'>{{comment.content}}<br>
+          <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
+        </p>
+      </div>
+  </section>
+  {{/each}}
+  {{/if}}
+</div> --}}
+
 {{/each}}
 <!-- END DRIVER POST ENTRIES -->
 </ul>
 </div>
-
+{{!-- {{/each}} --}}
 </script>
+<script type="text/javascript" src="/js/create-comment.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
 <script type="text/javascript" src="js/display-search.js"></script>

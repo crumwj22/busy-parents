@@ -6,15 +6,27 @@
       </p>
       <br>
       <div class="w3-center w3-row-padding w3-grayscale" style="margin-bottom:128px"> --}}
-
+    {{!-- <style>
+    
+    body {
+  background-image: url('/public/css/image3.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+    
+  </style> --}}
+{{!-- <img src="/public/css/image3.png" class="w3-image" width="992" height="1108"> --}}
         <h2>Login</h2>
-
-        <form class="form" id="login-form" style="hieght: 500px;">
+        
+      <div class="w3-cell-row w3-right">
+        
+        <form class="w3-container" id="login-form" 
           <div class="form-group" style="margin-bottom:12px">
             <label for="email-login">email:</label>
             <input class="form-input" type="text" id="email-login" />
           </div>
-          <div class="form-group">
+          <div class="form-group" style="margin-bottom:12px">
             <label for="password-login">password:</label>
             <input class="form-input" type="password" id="password-login" />
           </div>
@@ -22,7 +34,8 @@
             <button class="btn btn-primary" type="submit">Log in to your Account!</button>
           </div>
         </form>
-      </div>
+      {{!-- </div> --}}
+        </div>
       <p>First time here? Click <a href="signup">here</a> to sign up!</p>
     </div>
   </div>
