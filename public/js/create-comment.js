@@ -21,8 +21,8 @@ const newComment = async (event) => {
 };
 
 document
-  .querySelector('.commentForm')
-  .addEventListener('submit', CommentFormHandler);
+  .querySelector('#commentForm')
+  .addEventListener('submit', commentFormHandler);
 
 document
   .querySelector('#cancelComment')
