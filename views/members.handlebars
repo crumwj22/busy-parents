@@ -1,7 +1,6 @@
 <div class="w3-padding-32">
   <div class="w3-bar w3-border">
     <a href="/" class="w3-bar-item w3-button">Home</a>
-
     <a href="/my-account" class="w3-bar-item w3-button w3-light-grey">My Account</a>
     <a href="/api/users/logout" class="w3-bar-item w3-button">Log Out</a>
     {{!-- <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a> --}}
@@ -40,7 +39,7 @@
           <button id="cancelComment" type="reset">Cancel comment</button>
         </form>
         <!-- Comment Card -->
-        {{>post-comments item}}
+        {{!-- {{>post-comments item}} --}}
   </div>
   </li>
 </div>
@@ -65,7 +64,7 @@
 <!-- END DRIVER POST ENTRIES -->
 </ul>
 </div>
-
+{{!-- {{/each}} --}}
 </script>
 <script type="text/javascript" src="/js/create-comment.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
