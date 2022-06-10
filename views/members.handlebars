@@ -2,7 +2,7 @@
   <div class="w3-bar w3-border">
     <a href="/" class="w3-bar-item w3-button">Home</a>
 
-    <a href="/api/dashboard/" class="w3-bar-item w3-button w3-light-grey">My Account</a>
+    <a href="/my-account" class="w3-bar-item w3-button w3-light-grey">My Account</a>
     <a href="/api/users/logout" class="w3-bar-item w3-button">Log Out</a>
     {{!-- <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a> --}}
 
@@ -33,11 +33,11 @@
         <span>Pick Up Location:{{this.pickup_Location}}</span></br>
         <span>Drop Off Location:{{this.dropoff_Location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
+        <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
+        <!-- Comment Card -->
+        {{>post-comments item}}
   </div>
   </li>
-
-  <!-- Comment Card -->
-  {{>post-comments item}}
 </div>
 {{/each}}
 <!-- END DRIVER POST ENTRIES -->
@@ -45,5 +45,6 @@
 </div>
 
 </script>
+<script type="text/javascript" src="/js/create-comment.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
 <script type="text/javascript" src="js/display-search.js"></script>
