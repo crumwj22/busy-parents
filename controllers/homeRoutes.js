@@ -61,7 +61,7 @@ router.get('/my-account', async (req, res) => {
       res.status(500).json(err);
     }
   }
-  res.render('my-account');
+  // res.render('my-account');
 });
 // where: {
 //   user_id: req.session.user_id,
