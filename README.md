@@ -22,26 +22,15 @@
 
 
 ## PROJECT DESCRIPTION
-This web application allows users to create an account, and use that account to search for rideshare information as a rider or a driver. 
+This web application allows parents to create an account, and use that account to search rideshare information as a rider or driver in their local city. Parents are able to comment on the provided locations to sign their child up for the carpool. Drivers will have the option to provide locations where they will pick up and drop off children. As a driver, you will also be able to view all of the rides you have made yourself availble too throughout the week.
 
 
 
 ## USER STORY: 
-*	As a Parent planning my kid’s day,
-*   I want to see a list of carpool information for the week,
-*   So that I can set up our schedule ahead of time.
-
-
-
----
-## The service is an online platform for connecting Carpools for your kids to trusted drivers who are traveling in the same direction and want to share trips. 
----
 ```md
- How do you verify your users?
-    - In order to book a ride both the rider and driver need to verify their phone numbers and login using Facebook. Your phone number will only be shown to each other after you book a ride.
-
-    - To boost confidence in the service community members are asked to use their real names (not nicknames) and real images only. Both driver and passenger will be able to view each other’s profile and have the choice of who they will or will not ride with. Both sides have to agree for the ride to take place. (source:https://moovit.com/carpool/)
-
+As a Parent planning my kid’s day,
+I want to see carpool information in my city for the week,
+So that I can arrange our schedule ahead of time.
 ```
 
 
@@ -89,7 +78,8 @@ You and your group will use everything you’ve learned over the past six units 
 
 ## NEW TECH
 
--
+- Animate: https://animate.style/
+- W3Schools css framework: https://www.w3schools.com/w3css/default.asp
 
 
 
