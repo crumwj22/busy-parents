@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { resolveConfig } = require('prettier');
-const { User, Rider, Driver, Comment } = require('../models');
+const { User, Rider, Driver } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/signup', (req, res) => {
@@ -46,38 +45,6 @@ router.get('/login', (req, res) => {
   console.log('test');
   res.render('members');
 });
-
-router.get('/my-account', async (req, res) => {
-  if (req.session.user_id) {
-    try {
-      const commentData = await Comment.findAll({});
-      const comments = commentData.map((comments) =>
-        comments.get({ plain: true })
-      );
-
-      res.render('my-account', { comments });
-      return;
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
-  // res.render('my-account');
-});
-// where: {
-//   user_id: req.session.user_id,
-// },
-// });
-// console.log(Comment.findAll());
-// const comments = commentData.map((comments) => comments.get({ plain: true }));
-// If the user is already logged in, redirect the request to another route
-
-// if (req.session.logged_in) {
-//   res.redirect('/dashboard');
-//   return;
-// }
-//   console.log('test');
-//   res.render('my-account', comments);
-// });
 
 // route doesnt work
 // router.post('/logout', (req, res) => {
