@@ -33,11 +33,33 @@
         <span>Drop Off Location:{{this.dropoff_location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
         <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
+        <form class="commentForm">
+          <textarea type="text" id="comment" placeholder="Write a comment to check availability."></textarea>
+          <button id="confirmComment" type="submit">Confirm comment</button>
+          <button id="cancelComment" type="reset">Cancel comment</button>
+        </form>
         <!-- Comment Card -->
         {{!-- {{>post-comments item}} --}}
   </div>
   </li>
 </div>
+
+{{!-- Still working on getting this to work --}}
+{{!-- <div class='container-fluid'>
+
+  {{#if articleSingle.Comments.length}}
+  {{#each articleSingle.Comments as |comment|}}
+  <section class='comments-view'>
+      <div data-id='{{comment.id}}'>
+        <p class='commentTag' id='content'>{{comment.content}}<br>
+          <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
+        </p>
+      </div>
+  </section>
+  {{/each}}
+  {{/if}}
+</div> --}}
+
 {{/each}}
 <!-- END DRIVER POST ENTRIES -->
 </ul>
