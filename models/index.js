@@ -32,13 +32,13 @@ Rider.belongsTo(Driver, {
 });
 
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'user_id'
 });
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
+  foreignKey: 'user_id'
 });
 Driver.hasMany(Comment, {
-  foreignKey: 'user_id',
+  foreignKey: 'user_id'
 });
 
 module.exports = { User, Driver, Rider, Comment };
