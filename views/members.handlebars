@@ -7,17 +7,18 @@
 
   </div>
 </div>
-<div>
-  {{!-- <h1><strong>Hello,{{req.session.user_id}}</strong></h1> --}}
-</div>
-<div class="col-12">
-  <div class="w3-center w3-grey w3-padding-16">
-    <input type="text" class="form-control rounded" id="searchTxt" placeholder="Enter A City Name" aria-label="Search"
-      aria-describedby="search-addon" />
+
+{{!-- <div class="col-12">
+  <div class="w3-center w3-grey w3-padding-16"> --}}
+    {{!-- <input type="text" class="form-control rounded" id="searchTxt" placeholder="Enter A City Name"
+      aria-label="Search" aria-describedby="search-addon" />
     <button type="button" id="searchBtn" class="w3-button  w3-white w3-border w3-round-large">Search for
-      Drivers</button>
+      Drivers</button> --}}
+    {{!-- <h5>{{this.name}}</h5>
   </div>
-</div>
+</div> --}}
+
+
 
 {{#each posts}}
 <!-- Blog entry -->
@@ -25,20 +26,21 @@
   <div class="w3-container w3-padding">
     <ul class="w3-ul w3-hoverable w3-white">
       <li class="w3-padding-16">
-        <img src="https://placehold.jp/30/dd6699/ffffff/300x150.png?text=placeholder+image" alt="Image"
-          class="w3-left w3-margin-right" style="width:50px">
+        {{!-- <img src="/images/image3.png" class="w3-left w3-margin-right" style="width:50px"> --}}
 
         <span class="w3-opacity">Parent Driver:</span>
         <h3><strong>{{this.name}}</strong></h3>
         <h5> Available: {{this.availability}}</h5>
-        <span>Pick Up Location:{{this.pickup_location}}</span></br>
-        <span>Drop Off Location:{{this.dropoff_location}}</span></br>
+        <span>Pick Up Location: {{this.pickup_location}}</span></br>
+        <span>Drop Off Location: {{this.dropoff_location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
-        <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
+        <button type="button" id="addDriver" data-post-id={{this.id}}>+ Add Driver</button>
+
         <form class="commentForm">
-          <textarea type="text" id="comment" placeholder="Write a comment to check availability."></textarea>
-          <button id="confirmComment" type="submit">Submit</button>
-          <button id="cancelComment" type="reset">Cancel</button>
+          <textarea type="text" id="comment" data-id="{{post.id}}"
+            placeholder="Write a comment to check availability."></textarea>
+          <button id="confirmComment" type="submit">Confirm comment</button>
+          <button id="cancelComment" type="reset">Cancel comment</button>
         </form>
         <!-- Comment Card -->
         {{!-- {{>post-comments item}} --}}
@@ -46,21 +48,28 @@
   </li>
 </div>
 
-{{!-- Still working on getting this to work --}}
-{{!-- <div class='container-fluid'>
+{{!-- Getting comment data --}}
+<div class='container-fluid'>
 
-  {{#if articleSingle.Comments.length}}
-  {{#each articleSingle.Comments as |comment|}}
+  {{#if post.comment.length}}
+  {{#each post.comment as |comment|}}
   <section class='comments-view'>
-    <div data-id='{{comment.id}}'>
+    <<<<<<< HEAD <div data-id='{{comment.id}}'>
       <p class='commentTag' id='content'>{{comment.content}}<br>
         <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
       </p>
-    </div>
-  </section>
-  {{/each}}
-  {{/if}}
-</div> --}}
+</div>
+=======
+<div data-id='{{comment.id}}'>
+  <p class='commentTag' id='content'>{{comment.comment_text}}<br>
+    <small>- Posted by: {{comment.user.name}}</small>
+  </p>
+</div>
+>>>>>>> 9d232945c78a961adf91cffb8e61b6f66f3116d6
+</section>
+{{/each}}
+{{/if}}
+</div>
 
 {{/each}}
 <!-- END DRIVER POST ENTRIES -->

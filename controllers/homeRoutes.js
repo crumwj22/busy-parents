@@ -1,5 +1,9 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 const { User, Rider, Driver } = require('../models');
+=======
+const { Driver, Comment } = require('../models');
+>>>>>>> 9d232945c78a961adf91cffb8e61b6f66f3116d6
 const withAuth = require('../utils/auth');
 
 router.get('/signup', (req, res) => {
@@ -27,7 +31,6 @@ router.get('/', async (req, res) => {
       console.log('test');
       res.render('members', { posts });
       return;
-      console.log('test');
     } catch (err) {
       res.status(500).json(err);
     }
@@ -46,15 +49,20 @@ router.get('/login', (req, res) => {
   res.render('members');
 });
 
-// route doesnt work
-// router.post('/logout', (req, res) => {
-//   if (req.session.logged_in) {
-//     req.session.destroy(() => {
-//       res.status(204).end();
-//     });
-//   } else {
-//     res.status(404).end();
-//   }
-// });
+router.get('/my-account', async (req, res) => {
+  if (req.session.user_id) {
+    try {
+      const commentData = await Comment.findAll({});
+      const comments = commentData.map((comments) =>
+        comments.get({ plain: true })
+      );
+
+      res.render('my-account', { comments });
+      return;
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+});
 
 module.exports = router;
