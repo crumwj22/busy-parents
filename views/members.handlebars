@@ -8,14 +8,14 @@
   </div>
 </div>
 
-<div class="col-12">
+{{!-- <div class="col-12">
   <div class="w3-center w3-grey w3-padding-16">
     <input type="text" class="form-control rounded" id="searchTxt" placeholder="Enter A City Name" aria-label="Search"
       aria-describedby="search-addon" />
     <button type="button" id="searchBtn" class="w3-button  w3-white w3-border w3-round-large">Search for
       Drivers</button>
   </div>
-</div>
+</div> --}}
 
 {{#each posts}}
 <!-- Blog entry -->
@@ -33,6 +33,7 @@
         <span>Drop Off Location:{{this.dropoff_location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
         <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
+        
         <form class="commentForm">
           <textarea type="text" id="comment" placeholder="Write a comment to check availability."></textarea>
           <button id="confirmComment" type="submit">Confirm comment</button>
