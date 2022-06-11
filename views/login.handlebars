@@ -1,53 +1,37 @@
-{{!-- <div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-3 mx-auto text-center">
-      <p>
-      <p class="w3-large">An online platform for connecting Carpools for your kids to trusted Parent drivers.</p>
-      </p>
-      <br>
-      <div class="w3-center w3-row-padding w3-grayscale" style="margin-bottom:128px"> --}}
-        <form class="w3-container">
-    <style>
-    body,
-    .bgimg {
-  background-image: url('/public/css/image3.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-    
-  </style>
-  </form>
-{{!-- <img src="/public/css/image3.png" class="w3-image" width="992" height="1108"> --}}
-        <h2>Login</h2>
-        
-      
-        
-        <form class="w3-container" id="login-form">
-          <div class="form-group" style="margin-bottom:12px">
-            <label for="email-login">email:</label>
-            <input class="form-input" type="text" id="email-login" />
-          </div>
-          <div class="form-group" style="margin-bottom:12px">
-            <label for="password-login">password:</label>
-            <input class="form-input" type="password" id="password-login" />
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Log in to your Account!</button>
-          </div>
-        </form>
-        <p>
-          First time here? Click <a href="signup">here</a> to sign up!
-        </p>
-    </div>
+<div class="w3-card-4 w3-margin w3-white">
+
+  <div class="w3-container">
+    <h2>Login</h2>
+
+    <form class="w3-container" id="login-form">
+      <div class="form-group" style="margin-bottom:12px">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group" style="margin-bottom:12px">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+    <p>
+      First time here? Click <a href="signup">here</a> to sign up!
+    </p>
+
   </div>
 
 
+  <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+    <img src="/css/image2.png" alt="Logo" style="width:50%">
+
+  </header>
+</div>
 
 
-  
-  <script>console.log('sanity check')
-    const signupForm = document.getElementById('signup-form');
-    console.log(signupForm)
-  </script>
-  <script src="/js/login.js"></script>
+<script>console.log('sanity check')
+  const signupForm = document.getElementById('signup-form');
+  console.log(signupForm)
+</script>
+<script src="/js/login.js"></script>

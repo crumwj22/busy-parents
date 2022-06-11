@@ -3,43 +3,55 @@
   <p class="w3-large">An online platform for connecting Carpools for your kids to trusted Parent drivers.</p>
   </p>
   <br>
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Signup</h2>
+  <div class="w3-card-4 w3-margin w3-white">
 
-      <form id="signup-form">
-        <div class="form-group" style="margin-bottom:12px">
-          <label for="name-signup">name:</label>
-          <input class="form-input" type="text" id="name-signup" />
-        </div>
-        <div class="form-group" style="margin-bottom:12px">
-          <label for="username-signup">username:</label>
-          <input class="form-input" type="text" id="username-signup" />
-        </div>
-        <div class="form-group" style="margin-bottom:12px">
-          <label for="password-signup">password:</label>
-          <input class="form-input" type="password" id="password-signup" />
-        </div>
-        <div class="form-group" style="margin-bottom:12px">
-          <label for="email-signup">email:</label>
-          <input class="form-input" type="text" id="email-signup" />
-        </div>
+    <div class="w3-container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Join Our Carpool</h2>
 
-        <div class="form-group" style="margin-bottom:12px">
-          <label for="city-signup">city:</label>
-          <input class="form-input" type="text" id="city-signup" />
+          <form id="signup-form">
+            <div class="form-group" style="margin-bottom:12px">
+              <label for="name-signup">name:</label>
+              <input class="form-input" type="text" id="name-signup" />
+            </div>
+            <div class="form-group" style="margin-bottom:12px">
+              <label for="username-signup">username:</label>
+              <input class="form-input" type="text" id="username-signup" />
+            </div>
+            <div class="form-group" style="margin-bottom:12px">
+              <label for="password-signup">password:</label>
+              <input class="form-input" type="password" id="password-signup" />
+            </div>
+            <div class="form-group" style="margin-bottom:12px">
+              <label for="email-signup">email:</label>
+              <input class="form-input" type="text" id="email-signup" />
+            </div>
+
+            <div class="form-group" style="margin-bottom:12px">
+              <label for="city-signup">city:</label>
+              <input class="form-input" type="text" id="city-signup" />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Sign me Up for a New
+                Account!</button>
+            </div>
+            <p>
+              Already Have an Account with us? Click <a href="login">here</a> to LogIn!
+            </p>
+          </form>
+
         </div>
-        <div class="form-group">
-          <button class="btn btn-primary" type="submit">Sign me Up for a New
-            Account!</button>
-        </div>
-      </form>
-      
+      </div>
+
+      <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+        <img src="/css/image2.png" alt="Logo" style="width:50%">
+
+      </header>
     </div>
-  </div>
-  {{!--
-  <script>console.log('sanity check')
-    const signupForm = document.getElementById('signup-form');
-    console.log(signupForm)
-  </script> --}}
-  <script src="/js/login.js"></script>
+    {{!--
+    <script>console.log('sanity check')
+      const signupForm = document.getElementById('signup-form');
+      console.log(signupForm)
+    </script> --}}
+    <script src="/js/login.js"></script>

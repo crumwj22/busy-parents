@@ -1,9 +1,5 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { User, Rider, Driver } = require('../models');
-=======
 const { Driver, Comment } = require('../models');
->>>>>>> 9d232945c78a961adf91cffb8e61b6f66f3116d6
 const withAuth = require('../utils/auth');
 
 router.get('/signup', (req, res) => {
@@ -28,7 +24,7 @@ router.get('/', async (req, res) => {
       );
 
       // Pass serialized data into Handlebars.js template
-      console.log('test');
+
       res.render('members', { posts });
       return;
     } catch (err) {
@@ -40,29 +36,41 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  console.log('test1');
+
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.render('members');
     return;
   }
-  console.log('test');
-  res.render('members');
+
+  res.render('login');
 });
 
-router.get('/my-account', async (req, res) => {
-  if (req.session.user_id) {
-    try {
-      const commentData = await Comment.findAll({});
-      const comments = commentData.map((comments) =>
-        comments.get({ plain: true })
-      );
+// router.get('/my-account', async (req, res) => {
+//   if (req.session.user_id) {
+//     try {
+//       const commentData = await Comment.findAll({});
+//       //Issue
+//       console.log(commentData);
+//       const comments = commentData.map((comments) =>
+//         comments.get({ plain: true })
+//       );
 
-      res.render('my-account', { comments });
-      return;
-    } catch (err) {
-      res.status(500).json(err);
-    }
+//       res.render('my-account', { comments });
+//       return;
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   }
+// });
+router.get('/my-account', async (req, res) => {
+  // Let the user in of they are already logged in. If Else, redirect the request login route.
+
+  if (req.session.logged_in) {
+    res.redirect('members');
+    return;
   }
+
+  res.render('login');
 });
 
 module.exports = router;
