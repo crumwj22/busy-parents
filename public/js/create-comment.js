@@ -4,10 +4,10 @@ const newComment = async (event) => {
   // const body = document.querySelector('#commentBody').value.trim();
   const post_id = event.target.getAttribute('data-post-id');
 
-  if (post_id) {
+  if (comment_text) {
     const response = await fetch('/api/comment', {
       method: 'POST',
-      body: JSON.stringify({ post_id }),
+      body: JSON.stringify({ comment_text, post_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
