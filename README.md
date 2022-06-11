@@ -83,9 +83,9 @@ You and your group will use everything you’ve learned over the past six units 
 
 
 
-## SCREENSHOTS
-<img src="assets/busy-parents-login.png" width="300px">
-<img src="assets/busy-parents-dashboard.png" width="300px">
+## SCREENSHOT
+* <img src="assets/busy-parents-login.png" width="300px">
+
 
 
 
