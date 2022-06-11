@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seeds": "node seeds/index.js"
   },
   "keywords": [],
   "author": "",
@@ -27,5 +27,13 @@
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "2.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crumwj22/busy-parents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/crumwj22/busy-parents/issues"
+  },
+  "homepage": "https://github.com/crumwj22/busy-parents#readme"
 }

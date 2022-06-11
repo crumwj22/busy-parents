@@ -61,33 +61,6 @@ router.get('/my-account', async (req, res) => {
       res.status(500).json(err);
     }
   }
-  // res.render('my-account');
 });
-// where: {
-//   user_id: req.session.user_id,
-// },
-// });
-// console.log(Comment.findAll());
-// const comments = commentData.map((comments) => comments.get({ plain: true }));
-// If the user is already logged in, redirect the request to another route
-
-// if (req.session.logged_in) {
-//   res.redirect('/dashboard');
-//   return;
-// }
-//   console.log('test');
-//   res.render('my-account', comments);
-// });
-
-// route doesnt work
-// router.post('/logout', (req, res) => {
-//   if (req.session.logged_in) {
-//     req.session.destroy(() => {
-//       res.status(204).end();
-//     });
-//   } else {
-//     res.status(404).end();
-//   }
-// });
 
 module.exports = router;
