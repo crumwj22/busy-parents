@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { resolveConfig } = require('prettier');
+// const { resolveConfig } = require('prettier');
 const { User, Rider, Driver, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
