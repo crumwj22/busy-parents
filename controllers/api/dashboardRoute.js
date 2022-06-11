@@ -36,7 +36,7 @@ router.post("/api/new", (req, res) => {
     routeName: routeName,
     name: pet.name,
     pickup_Location: Driver.pickup_Location,
-    dropoff_Location: Driver.dropoff_Location,
+    pickup_Location: Driver.dropoff_Location,
     date_created: Driver.date_created,
     availability: Driver.availability,
     user_id: Driver.user_id,
