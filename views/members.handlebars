@@ -1,14 +1,15 @@
 <div class="w3-padding-32">
   <div class="w3-bar w3-border">
     <a href="/" class="w3-bar-item w3-button">Home</a>
-    <a href="/profile" class="w3-bar-item w3-button w3-light-grey">My Account</a>
+    <a href="/dashboard" class="w3-bar-item w3-button w3-light-grey">My Account</a>
     <a href="/api/users/logout" class="w3-bar-item w3-button">Log Out</a>
     {{!-- <a href="#" class="w3-bar-item w3-button w3-hide-small">FAQs</a> --}}
 
   </div>
 </div>
 
-{{!-- <div class="col-12">
+{{!-- SEARCH BAR
+<div class="col-12">
   <div class="w3-center w3-grey w3-padding-16"> --}}
     {{!-- <input type="text" class="form-control rounded" id="searchTxt" placeholder="Enter A City Name"
       aria-label="Search" aria-describedby="search-addon" />
@@ -26,24 +27,44 @@
   <div class="w3-container w3-padding">
     <ul class="w3-ul w3-hoverable w3-white">
       <li class="w3-padding-16">
-        {{!-- <img src="/images/image3.png" class="w3-left w3-margin-right" style="width:50px"> --}}
 
         <span class="w3-opacity">Parent Driver:</span>
         <h3><strong>{{this.name}}</strong></h3>
         <h5> Available: {{this.availability}}</h5>
         <span>Pick Up Location: {{this.pickup_location}}</span></br>
         <span>Drop Off Location: {{this.dropoff_location}}</span></br>
-        <span class="w3-opacity">Post made on: {{this.date_created}}</span>
+        <span class="w3-opacity">Post made on: {{this.date_created}}</span></br>
         <button type="button" id="addDriver" data-post-id={{this.id}}>+ Add Driver</button>
 
+        </br>
         <form class="commentForm">
-          <textarea type="text" id="comment" data-id="{{post.id}}"
+          <textarea type="text" rows="4" cols="50" id="comment" data-id="{{post.id}}"
             placeholder="Write a comment to check availability."></textarea>
-          <button id="confirmComment" type="submit">Confirm comment</button>
-          <button id="cancelComment" type="reset">Cancel comment</button>
+          </br><button id="confirmComment" type="submit" onclick="newComment()">Post comment</button>
+          </br><button id="cancelComment" type="reset">Cancel</button>
         </form>
         <!-- Comment Card -->
-        {{!-- {{>post-comments item}} --}}
+        {{#if comment}}
+        <div class="container is-fluid">
+          <div class="notification mt-4 mb-0 is-primary has-text-weight-bold is-size-5 py-2">Comments</div>
+          {{#each comment}}
+          <div class="card mt-2">
+            <header class="card-header is-justify-content-end has-background-success">
+              <div>
+                <p class="card-header-title is-italic has-text-weight-normal">
+                  By: {{user.username}} on {{ format_date date_created}}
+                </p>
+              </div>
+            </header>
+            <div class="card-content has-background-success-light">
+              <div class="content">
+                {{body}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
   </div>
   </li>
 </div>
@@ -54,21 +75,21 @@
   {{#if post.comment.length}}
   {{#each post.comment as |comment|}}
   <section class='comments-view'>
-    <<<<<<< HEAD <div data-id='{{comment.id}}'>
+    <div data-id='{{comment.id}}'>
       <p class='commentTag' id='content'>{{comment.content}}<br>
         <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
       </p>
-</div>
-=======
-<div data-id='{{comment.id}}'>
-  <p class='commentTag' id='content'>{{comment.comment_text}}<br>
-    <small>- Posted by: {{comment.user.name}}</small>
-  </p>
-</div>
->>>>>>> 9d232945c78a961adf91cffb8e61b6f66f3116d6
-</section>
-{{/each}}
-{{/if}}
+    </div>
+
+    <div data-id='{{comment.id}}'>
+      <p class='commentTag' id='content'>{{comment.comment_text}}<br>
+        <small>- Posted by: {{comment.user.name}}</small>
+      </p>
+    </div>
+
+  </section>
+  {{/each}}
+  {{/if}}
 </div>
 
 {{/each}}

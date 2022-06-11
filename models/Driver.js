@@ -16,10 +16,10 @@ Driver.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    pickup_location: {
+    pickup_Location: {
       type: DataTypes.STRING,
     },
-    dropoff_location: {
+    dropoff_Location: {
       type: DataTypes.STRING,
     },
     date_created: {
