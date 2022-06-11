@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2> {{User.name}}!</h2>
+    <h2> Hello, {{name}}!</h2>
   </div>
 </div>
 
@@ -27,17 +27,17 @@
     </form>
   </div>
 
-  {{#if blog.length}}
+  {{#if drivers.length}}
   <div class="col-md-6 project-list">
-    <h3>Current Posts:</h3>
+    <h3>Your Driver Posts</h3>
 
-    {{#each blogs as |blog|}}
+    {{#each drivers as |driver|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{this.id}}</a></h4>
+        <h4><a href="/post/{{driver.id}}">{{this.id}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{driver.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
