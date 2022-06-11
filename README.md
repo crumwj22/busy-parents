@@ -69,10 +69,11 @@ You and your group will use everything you’ve learned over the past six units 
 
 
 
-## DEPLOYED LINKS
+## LINKS
 
 - [VIEW LIVE APP](https://busy-parents-jesse.herokuapp.com/)
 - [GITHUB](https://github.com/crumwj22/busy-parents)
+- [Presentation](https://docs.google.com/presentation/d/1WrR44cODTPc2Ap5P2igxyeic0ZbPdbht6NdSQuw5G1M/edit#slide=id.g13237d46563_0_7)
 
 
 
