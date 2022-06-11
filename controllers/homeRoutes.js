@@ -1,6 +1,5 @@
 const router = require('express').Router();
-// const { resolveConfig } = require('prettier');
-const { User, Rider, Driver, Comment } = require('../models');
+const { Driver, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/signup', (req, res) => {
