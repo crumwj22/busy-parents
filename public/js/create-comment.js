@@ -21,6 +21,10 @@ const newComment = async (event) => {
 };
 
 document
+  .querySelector('#addDriver')
+  .addEventListener('submit', commentButtonHandler);
+
+document
   .querySelector('#commentForm')
   .addEventListener('submit', commentFormHandler);
 

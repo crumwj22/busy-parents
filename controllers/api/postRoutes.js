@@ -1,36 +1,16 @@
 const router = require('express').Router();
-const { Driver, User, Rider } = require('../../models');
+const { Driver, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-// //GET all users-Driver's post
-// router.get('/', async (req, res) => {
-//   try {
-//     // Get all driver posts and JOIN with user data
-//     const userData = await User.findAll({});
-
-//     // Serialize data so the template can read it
-//     const user = userData.map((user) => user.get({ plain: true }));
-
-//     // Pass serialized data and session flag into template
-//     res.render('signup', {
-//       user,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 //GET all Driver Posts
 router.get('/', (req, res) => {
   Driver.findAll({})
-    .then(dbDriverData => res.json(dbDriverData))
-    .catch(err => {
+    .then((dbDriverData) => res.json(dbDriverData))
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 //Create a new-Driver's post
 router.post('/', withAuth, async (req, res) => {
@@ -61,25 +41,29 @@ router.get('/users/:id', async (req, res) => {
   }
 });
 
-
 //Edit a Driver's post
 router.put('/:id', withAuth, (req, res) => {
-  Driver.update({
-    post_content: req.body.post_content
-  }, {
-    where: {
-      id: req.params.id
+  Driver.update(
+    {
+      post_content: req.body.post_content,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
     }
-  }).then(dbDriverData => {
-    if (!dbDriverData) {
-      res.status(404).json({ message: 'No Driver Post found with this id' });
-      return;
-    }
-    res.json(dbDriverData);
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+  )
+    .then((dbDriverData) => {
+      if (!dbDriverData) {
+        res.status(404).json({ message: 'No Driver Post found with this id' });
+        return;
+      }
+      res.json(dbDriverData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 //Delete a Driver's post
