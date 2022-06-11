@@ -71,7 +71,7 @@ You and your group will use everything you’ve learned over the past six units 
 
 ## DEPLOYED LINKS
 
-- [VIEW LIVE APP]()
+- [VIEW LIVE APP](https://busy-parents-jesse.herokuapp.com/)
 - [GITHUB](https://github.com/crumwj22/busy-parents)
 
 
@@ -84,7 +84,7 @@ You and your group will use everything you’ve learned over the past six units 
 
 
 ## SCREENSHOTS
-
+<img src="assets/busy-parents-login.png" width="300px">
 
 
 
