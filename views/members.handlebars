@@ -47,12 +47,12 @@
 {{!-- Getting comment data --}}
 <div class='container-fluid'>
 
-  {{#if post.Comments.length}}
-  {{#each post.Comments as |comment|}}
+  {{#if post.comment.length}}
+  {{#each post.comment as |comment|}}
   <section class='comments-view'>
       <div data-id='{{comment.id}}'>
         <p class='commentTag' id='content'>{{comment.comment_text}}<br>
-          <small>- Posted by {{comment.user.name}}</small>
+          <small>- Posted by: {{comment.user.name}}</small>
         </p>
       </div>
   </section>
