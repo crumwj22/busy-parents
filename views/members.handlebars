@@ -34,7 +34,7 @@
         <span class="w3-opacity">Post made on: {{this.date_created}}</span>
         <button type="button" id="commentButton" data-post-id={{this.id}}>+ Add Driver</button>
         <form class="commentForm">
-          <textarea type="text" id="comment" placeholder="Write a comment to check availability."></textarea>
+          <textarea type="text" id="comment" data-id="{{post.id}}" placeholder="Write a comment to check availability."></textarea>
           <button id="confirmComment" type="submit">Confirm comment</button>
           <button id="cancelComment" type="reset">Cancel comment</button>
         </form>
@@ -44,21 +44,21 @@
   </li>
 </div>
 
-{{!-- Still working on getting this to work --}}
-{{!-- <div class='container-fluid'>
+{{!-- Getting comment data --}}
+<div class='container-fluid'>
 
-  {{#if articleSingle.Comments.length}}
-  {{#each articleSingle.Comments as |comment|}}
+  {{#if post.Comments.length}}
+  {{#each post.Comments as |comment|}}
   <section class='comments-view'>
       <div data-id='{{comment.id}}'>
-        <p class='commentTag' id='content'>{{comment.content}}<br>
-          <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
+        <p class='commentTag' id='content'>{{comment.comment_text}}<br>
+          <small>- Posted by {{comment.user.name}}</small>
         </p>
       </div>
   </section>
   {{/each}}
   {{/if}}
-</div> --}}
+</div>
 
 {{/each}}
 <!-- END DRIVER POST ENTRIES -->
