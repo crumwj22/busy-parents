@@ -1,3 +1,4 @@
+const buttons = document.querySelectorAll(".addDriver");
 const addDriver = async (event) => {
   event.preventDefault();
   console.log("add driver");
@@ -6,7 +7,7 @@ const addDriver = async (event) => {
   console.log(post_id);
   if (post_id) {
     const response = await fetch("/api/addDriver/" + post_id, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify({ post_id }),
       headers: { "Content-Type": "application/json" },
     });
@@ -20,4 +21,6 @@ const addDriver = async (event) => {
   }
 };
 
-document.querySelector("#addDriver").addEventListener("click", addDriver);
+buttons.forEach((button) => {
+  button.addEventListener("click", addDriver);
+});

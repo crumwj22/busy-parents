@@ -131,7 +131,11 @@ router.get("/singlepost/:id", async (req, res) => {
 
 router.get("/my-account", (req, res) => {
   console.log("hello");
-  Driver.findAll({})
+  Driver.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+  })
     .then((dbDriverData) => {
       const drivers = dbDriverData.map((driver) => driver.get({ plain: true }));
       console.log(drivers);
