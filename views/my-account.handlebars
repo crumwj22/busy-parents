@@ -21,11 +21,11 @@
 
     <form class="form new-project-form">
       <div class="form-group">
-        <label for="project-name">PickUp Location:{{this.pickup_Location}}</label>
+        <label for="project-name">PickUp Location:{{this.pickup_location}}</label>
         <input class="form-input" type="text" id="project-name" name="project-name" />
       </div>
       <div class="form-group">
-        <label for="project-name">Dropoff Location:{{this.dropoff_Location}}</label>
+        <label for="project-name">Dropoff Location:{{this.dropoff_location}}</label>
         <input class="form-input" type="text" id="project-name" name="project-name" />
       </div>
       <div class="form-group">
@@ -46,17 +46,15 @@
 
   </header>
 </div>
-
-<p class="w3-center"><button class="w3-button w3-black" onclick="myFunction('demo1')" id="myBtn"><b>Driver's Added
-       </b>
-    <span class="w3-tag w3-white">1</span></button></p>
-<p class="w3-clear"></p>
-<div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
+{{#each drivers as |driver|}}
+{{!-- Drivers added to my account --}}
+<p class="w3-center" id="addDriver"></p>
+<div class="w3-row w3-margin-bottom" id="demo1">
   <hr>
-  <div class="w3-col l2 m3">
-    <img src="http://placehold.jp/a5d9bc/ffffff/100x60.png?text=USER" style="width:90px;">
-  </div>
   <div class="w3-bar w3-border">
     <h4>{{driver.name}}</h4>
-    <p>{{driver.id}}</p>
+    <p>{{driver.pickup_location}}</p>
+    <p>{{driver.dropoff_location}}</p>
+    
   </div>
+{{/each}}
