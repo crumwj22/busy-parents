@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Driver, Comment } = require("../models");
+const { Driver, Comment, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/signup", (req, res) => {
@@ -45,21 +45,21 @@ router.post("/login", (req, res) => {
   res.render("members");
 });
 
-router.get("/my-account", async (req, res) => {
-  if (req.session.user_id) {
-    try {
-      const commentData = await Comment.findAll({});
-      const comments = commentData.map((comments) =>
-        comments.get({ plain: true })
-      );
+// router.get("/my-account", async (req, res) => {
+//   if (req.session.user_id) {
+//     try {
+//       const commentData = await Comment.findAll({});
+//       const comments = commentData.map((comments) =>
+//         comments.get({ plain: true })
+//       );
 
-      res.render("my-account", { comments });
-      return;
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
-});
+//       res.render("my-account", { comments });
+//       return;
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   }
+// });
 
 // module.exports = router;
 //HOMEPAGE
@@ -111,6 +111,37 @@ router.get("/singlepost/:id", async (req, res) => {
     comments,
     logged_in: req.session.logged_in,
   });
+});
+
+// add driver to my account
+// router.get("/my-account", async (req, res) => {
+//   // if (req.session.user_id) {
+//   // const driverData = await Driver.findAll({});
+//   // const drivers = driverData.map((driver) => driver.get({ plain: true }));
+//   try {
+//     const driverData = await Driver.findAll({});
+//     const drivers = driverData.map((driver) => driver.get({ plain: true }));
+//     console.log(drivers, "this is a test");
+//     res.render("my-account", { drivers });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   // }
+// });
+
+router.get("/my-account", (req, res) => {
+  console.log("hello");
+  Driver.findAll({})
+    .then((dbDriverData) => {
+      const drivers = dbDriverData.map((driver) => driver.get({ plain: true }));
+      console.log(drivers);
+      res.render("my-account", {
+        drivers,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
