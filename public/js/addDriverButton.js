@@ -21,6 +21,7 @@ const addDriver = async (event) => {
   }
 };
 
+//NEED TO ADD DELETE DRIVER BUTTON FUNCTION
 buttons.forEach((button) => {
   button.addEventListener("click", addDriver);
 });
