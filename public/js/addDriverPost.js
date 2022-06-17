@@ -50,7 +50,9 @@ $(document).ready(() => {
 
 
     // redirect to 
+
     $.get("/dashboard", isAuthenticated, (req, res) => {
+
       res.render("dashboard", {});
     });
   });
