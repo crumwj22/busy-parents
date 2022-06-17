@@ -1,13 +1,13 @@
 [
      {
      "name": "Buster Baxter",
-     "pickup_location": "West Seattle High School",
+     "pickup_location": "Bellevue Drive Park & Drive",
      "dropoff_location": "South Seattle High School",
      "availability": "Afternoon"
     },
     {
-      "name": "Arthur Reed",
-      "pickup_location": "Bellevue Drive Park & Drive",
+      "name": "Arthur Reid",
+      "pickup_location": "West Seattle High School",
       "dropoff_location": "Bellevue Elementry",
       "availability": "Morning"
      },
