@@ -37,7 +37,7 @@ $(document).ready(() => {
         // log the data we found
         console.log(data);
         // tell the user we're adding a character with an alert window
-        alert("Adding pet...");
+        alert("Adding driver...");
       });
 
     // empty each input box by replacing the value with an empty string

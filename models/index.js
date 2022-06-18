@@ -38,7 +38,7 @@ User.hasMany(Comment, {
   foreignKey: "user_id",
 });
 Driver.hasMany(Comment, {
-  foreignKey: "user_id",
+  foreignKey: "driver_id",
 });
 Driver.hasMany(User, {
   foreignKey: "user_id",

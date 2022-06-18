@@ -33,9 +33,10 @@
 
 
         <form class="commentForm">
-          <textarea type="text" rows="4" cols="50" id="comment" data-id="{{post.id}}"
+          <textarea type="text" rows="4" cols="50" id="comment"
             placeholder="Write a comment to check availability."></textarea>
-          </br><button id="confirmComment" type="submit" onclick="newComment()">Post comment</button>
+          </br><button id="confirmComment" data-id="{{this.id}}" type="submit" onclick="newComment()">Post
+            comment</button>
           </br><button id="cancelComment" type="reset">Cancel</button>
         </form>
         <!-- Comment Card -->
