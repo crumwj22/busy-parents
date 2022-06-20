@@ -38,10 +38,6 @@ So that I can arrange our schedule ahead of time.
 - Animate: https://animate.style/
 - W3Schools css framework: https://www.w3schools.com/w3css/default.asp
 
-## SCREENSHOTS
-
-<img src="assets/busy-parents-login.png" width="300px">
-
 ## CONTRIBUTIONS AND ROLES
 
 - Avi Rana: Back End and Front End [Github](https://github.com/AR31313)
