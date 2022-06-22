@@ -1,12 +1,12 @@
-const buttons = document.querySelectorAll(".addDriver");
-const addDriver = async (event) => {
+const buttons = document.querySelectorAll("#removeDriver");
+const removeDriver = async (event) => {
   event.preventDefault();
-  console.log("add driver");
+  console.log("remove driver");
 
   const post_id = event.target.getAttribute("data-post-id");
   console.log(post_id);
   if (post_id) {
-    const response = await fetch("/api/driver/" + post_id, {
+    const response = await fetch("/api/driver/removeDriver/" + post_id, {
       method: "PUT",
       body: JSON.stringify({ post_id }),
       headers: { "Content-Type": "application/json" },
@@ -23,5 +23,5 @@ const addDriver = async (event) => {
 
 //NEED TO ADD DELETE DRIVER BUTTON FUNCTION
 buttons.forEach((button) => {
-  button.addEventListener("click", addDriver);
+  button.addEventListener("click", removeDriver);
 });

@@ -62,7 +62,7 @@
       <p>Pick Up @ <strong>{{driver.pickup_location}}</strong></p>
       <p>Drop Off @ <strong>{{driver.dropoff_location}}</strong></p>
       {{!-- nEED TO ADD js funct to id="removeDriver" --}}
-      </br><button id="removeDriver" type="reset">Remove Driver</button>
+      </br><button id="removeDriver" data-post-id={{driver.id}} type="reset">Remove Driver {{driver.user_id}}</button>
       {{/each}}
     </div>
   </div>
@@ -89,3 +89,5 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="/js/removeDriver.js"></script>
