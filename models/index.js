@@ -3,7 +3,7 @@ const Rider = require("./Rider");
 const Driver = require("./Driver");
 const Comment = require("./comment");
 
-Driver.hasOne(User, {
+Driver.hasMany(User, {
   // Define the third table needed to store the foreign keys
   foreignKey: "user_id",
   onDelete: "CASCADE",
@@ -38,7 +38,7 @@ User.hasMany(Comment, {
   foreignKey: "user_id",
 });
 Driver.hasMany(Comment, {
-  foreignKey: "user_id",
+  foreignKey: "driver_id",
 });
 Driver.hasMany(User, {
   foreignKey: "user_id",

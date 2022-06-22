@@ -19,25 +19,32 @@
       <li class="w3-padding-16">
 
         <span class="w3-opacity">Parent Driver:</span>
-        <h3><strong>{{this.name}}</strong></h3>
-        <h5> Available: {{this.availability}}</h5>
+        <h3><strong>
+            <div class="w3-teal w3-hover-light-grey">{{this.name}}
+          </strong></h3>
+
+        <h5> Available: {{this.availability}}s</h5>
+
         <span>Pick Up Location: {{this.pickup_location}}</span></br>
         <span>Drop Off Location: {{this.dropoff_location}}</span></br>
         <span class="w3-opacity">Post made on: {{this.date_created}}</span></br>
         <button type="button" class="addDriver" data-post-id={{this.id}}>+ Add Driver</button>
 
-        </br>
+
+
         <form class="commentForm">
-          <textarea type="text" rows="4" cols="50" id="comment" data-id="{{post.id}}"
+          <textarea type="text" rows="4" cols="50" id="comment"
             placeholder="Write a comment to check availability."></textarea>
-          </br><button id="confirmComment" type="submit" onclick="newComment()">Post comment</button>
-          </br><button id="cancelComment" type="reset">Cancel</button>
+          </br>
+          <button type="button" class="confirmComment" data-id="{{this.id}}">Post
+            comment</button>
+          </br>
+          <button id="cancelComment" type="reset">Cancel</button>
         </form>
         <!-- Comment Card -->
-        {{#if comment}}
+        {{#if this.comment}}
         <div class="container is-fluid">
           <div class="notification mt-4 mb-0 is-primary has-text-weight-bold is-size-5 py-2">Comments</div>
-          {{#each comment}}
           <div class="card mt-2">
             <header class="card-header is-justify-content-end has-background-success">
               <div>
@@ -52,41 +59,19 @@
               </div>
             </div>
           </div>
-          {{/each}}
+
         </div>
         {{/if}}
   </div>
   </li>
 </div>
 
-{{!-- Getting comment data --}}
-<div class='container-fluid'>
 
-  {{#if post.comment.length}}
-  {{#each post.comment as |comment|}}
-  <section class='comments-view'>
-    <div data-id='{{comment.id}}'>
-      <p class='commentTag' id='content'>{{comment.content}}<br>
-        <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
-      </p>
-    </div>
 
-    <div data-id='{{comment.id}}'>
-      <p class='commentTag' id='content'>{{comment.comment_text}}<br>
-        <small>- Posted by: {{comment.user.name}}</small>
-      </p>
-    </div>
-
-  </section>
-  {{/each}}
-  {{/if}}
-</div>
-
-{{/each}}
 <!-- END DRIVER POST ENTRIES -->
 </ul>
 </div>
-{{!-- {{/each}} --}}
+{{/each}}
 </script>
 <script type="text/javascript" src="/js/addDriverButton.js"></script>
 <script type="text/javascript" src="/js/create-comment.js"></script>
