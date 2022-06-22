@@ -1,5 +1,8 @@
-const newComment = async (event) => {
+const cmtbutton = document.querySelectorAll(".confirmComment");
+
+const confirmComment = async (event) => {
   event.preventDefault();
+  console.log(event.target)
 
   const comment_text = document.querySelector('#comment').value.trim();
   const driver_id = event.target.getAttribute('data-id');
@@ -13,13 +16,17 @@ const newComment = async (event) => {
 
     if (response.ok) {
       //reload the page on success - to see the comment post
-      document.location.replace(`/dashboard${driver_id}`);
+      document.location.reload();
     } else {
       alert(response.statusText);
     }
   }
 };
 
+// cmtbutton.forEach((button) => {
+//   button.addEventListener("click", confirmComment);
+// });
+
 document
-  .querySelector('#confirmComment')
-  .addEventListener('click', newComment);
+  .querySelector('.confirmComment')
+  .addEventListener('click', confirmComment);

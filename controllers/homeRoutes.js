@@ -76,6 +76,19 @@ router.get("/", async (req, res) => {
       );
 
       // Pass serialized data into Handlebars.js template
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.table(posts[0])
+
+      for (let i = 0; i < posts.length; i++) {
+        const commentData = await Comment.findOne({
+          where: {
+            id: posts[i].comment
+          }
+        });
+        posts[i].comment = commentData;
+        console.table(posts[0])
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      }
 
       res.render("members", { posts });
       return;
