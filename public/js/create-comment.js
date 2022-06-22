@@ -6,6 +6,7 @@ const confirmComment = async (event) => {
 
   const comment_text = document.querySelector('#comment').value.trim();
   const driver_id = event.target.getAttribute('data-id');
+  console.log(comment);
 
   if (comment_text) {
     const response = await fetch('/api/comment', {

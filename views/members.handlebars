@@ -59,41 +59,19 @@
               </div>
             </div>
           </div>
-          {{!-- {{/each}} --}}
+
         </div>
         {{/if}}
   </div>
   </li>
 </div>
 
-{{!-- Getting comment data --}}
-<div class='container-fluid'>
 
-  {{#if post.comment.length}}
-  {{#each post.comment as |comment|}}
-  <section class='comments-view'>
-    <div data-id='{{comment.id}}'>
-      <p class='commentTag' id='content'>{{comment.content}}<br>
-        <small>- Posted by {{comment.user.name}} on {{this.date_created}}</small>
-      </p>
-    </div>
 
-    <div data-id='{{comment.id}}'>
-      <p class='commentTag' id='content'>{{comment.comment_text}}<br>
-        <small>- Posted by: {{comment.user.name}}</small>
-      </p>
-    </div>
-
-  </section>
-  {{/each}}
-  {{/if}}
-</div>
-
-{{/each}}
 <!-- END DRIVER POST ENTRIES -->
 </ul>
 </div>
-{{!-- {{/each}} --}}
+{{/each}}
 </script>
 <script type="text/javascript" src="/js/addDriverButton.js"></script>
 <script type="text/javascript" src="/js/create-comment.js"></script>
